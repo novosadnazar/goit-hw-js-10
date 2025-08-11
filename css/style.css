@@ -1,0 +1,26 @@
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+img {
+    display: block;
+
+}
+
+
+.header {
+    height: calc(100vh + 100px);
+    background-color: grey;
+}
+
+section {
+    height: 100vh;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    outline: 1px solid red;
+}
