@@ -1,18 +1,26 @@
-const videObserver = new IntersectionObserver(([entri]) => {
-  console.log(entri.target);
-  const video = entri.target;
+const boxObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((element) => {
+      if (element.isIntersecting) {
+        const img = element.target.querySelector("img");
+        const text = element.target.querySelector(".text");
 
-  if (video.currentTime === 0) {
-    return;
-  }
-  if (!entri.isIntersecting || entri.intersectionRatio <= 0.2) {
-    video.pause();
-  }
-  if (entri.isIntersecting) {
-    video.play();
-  }
-}, {
-    threshold: [0.2, 0.8],
-});
+        img.src = img.dataset.src;
+        img.onload = () => {
+          img.classList.add("loaded");
+          text.classList.add("loaded"); // з’являється разом
+        };
 
-document.querySelectorAll(".video").forEach((item) => videObserver.observe(item))
+        observer.unobserve(element.target);
+      }
+    });
+  },
+  {
+    rootMargin: "15px",
+  }
+);
+
+document.querySelectorAll(".box").forEach((item) => boxObserver.observe(item));
+
+
+

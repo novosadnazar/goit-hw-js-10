@@ -1,26 +1,48 @@
 h1,
 h2,
 p {
-    margin: 0;
+  margin: 0;
 }
 
 img {
-    display: block;
-
+  display: block;
 }
 
-
-.header {
-    height: calc(100vh + 100px);
-    background-color: grey;
+body {
+  background-color: gray;
 }
 
-section {
-    height: 100vh;
+.title {
+  position: fixed;
+  top: 10px;
+  left: 500px;
+  text-align: center;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 50px;
 }
 
 img {
-    width: 200px;
-    height: 200px;
-    outline: 1px solid red;
+  height: 200px;
+  transform: translateX(-40px);
+  transition: transform 0.7s ease;
+  opacity: 0;
+  margin-top: 370px;
+}
+
+img.loaded {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.text {
+  font-size: 20px;
+  font-family: "Libre Baskerville", serif;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.text.loaded {
+  opacity: 1;
+  transform: translateX(0);
 }
